@@ -1,15 +1,20 @@
 <script>
+import ProjectCard from './ProjectCard.vue';
+
 export default {
   name: 'Main',
-  components: {},
   props: ['projects'],
+  components: {
+    ProjectCard,
+  },
 };
 </script>
 
 <template>
   <main>
-    <div class="container py-5">
-      <h1>Projects</h1>
+    <h1 class="text-center mt-5">Projects</h1>
+    <div class="container py-5 d-flex flex-wrap justify-content-between gap-5">
+      <ProjectCard :projects="projects" />
     </div>
   </main>
 </template>
