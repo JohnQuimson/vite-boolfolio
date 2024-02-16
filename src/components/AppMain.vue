@@ -2,12 +2,15 @@
 export default {
   name: 'Main',
   components: {},
+  props: ['projects'],
 };
 </script>
 
 <template>
   <main>
-    <div class="container py-5">main</div>
+    <div class="container py-5">
+      <h1>Projects</h1>
+    </div>
   </main>
 </template>
 

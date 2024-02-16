@@ -10,6 +10,7 @@ export default {
 
   data() {
     return {
+      projects: [],
       baseUrl: 'http://127.0.0.1:8000',
       apiUrls: {
         projects: '/api/projects',
@@ -28,6 +29,7 @@ export default {
       axios
         .get(this.baseUrl + this.apiUrls.projects)
         .then((response) => {
+          this.projects = response.data.data;
           console.log(response);
         })
         .catch((error) => {
@@ -43,7 +45,7 @@ export default {
 
 <template>
   <AppHeader />
-  <AppMain />
+  <AppMain :projects="projects" />
   <AppFooter />
 </template>
 
