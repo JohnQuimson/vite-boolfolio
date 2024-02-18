@@ -36,6 +36,18 @@ export default {
           console.log(error);
         });
     },
+
+    nextPage() {
+      this.currentPage++;
+      this.getProjects();
+    },
+
+    prevPage() {
+      if (this.currentPage > 1) {
+        this.currentPage--;
+        this.getProjects();
+      }
+    },
   },
   created() {
     this.getProjects();
@@ -49,5 +61,14 @@ export default {
     <div class="container py-5 d-flex flex-wrap justify-content-center gap-5">
       <ProjectCard :projects="projects" />
     </div>
+    <ul class="container d-flex justify-content-around list-unstyled">
+      <li>
+        <button class="btn btn-primary" @click="prevPage">&lt</button>
+      </li>
+      <li>{{ this.currentPage }}</li>
+      <li>
+        <button class="btn btn-primary" @click="nextPage">></button>
+      </li>
+    </ul>
   </main>
 </template>
