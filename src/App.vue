@@ -12,14 +12,8 @@ export default {
     return {
       projects: [],
       baseUrl: 'http://127.0.0.1:8000',
-      apiUris: {
+      apiUrls: {
         projects: '/api/projects',
-      },
-      params: {
-        page: {
-          prefix: '?page=',
-          currentPage: 1,
-        },
       },
     };
   },
@@ -33,12 +27,7 @@ export default {
   methods: {
     getProjects() {
       axios
-        .get(
-          this.baseUrl +
-            this.apiUris.projects +
-            this.params.page.prefix +
-            this.params.page.currentPage
-        )
+        .get(this.baseUrl + this.apiUrls.projects)
         .then((response) => {
           this.projects = response.data.data;
           console.log(response);
@@ -47,9 +36,6 @@ export default {
           console.log(error);
         });
     },
-
-    prevPage() {},
-    nextPage() {},
   },
   created() {
     this.getProjects();
