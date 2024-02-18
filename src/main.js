@@ -7,5 +7,7 @@ import './assets/js/main';
 // Bootstrap
 import * as bootstrap from 'bootstrap';
 
+import { router } from './router';
+
 // Vue App
-createApp(App).mount('#app');
+createApp(App).use(router).mount('#app');

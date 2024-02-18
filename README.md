@@ -2,11 +2,11 @@
   <br>
     <img src="./public/img/my-logo.png" alt="my-logo" width="200">
   <br>
- TITLE
+ Boolfolio Front-end
   <br>
 </h1>
 
-<h4 align="center">summary <a href="http://electron.atom.io" target="_blank">"link"</a>.</h4>
+<!-- <h4 align="center">summary <a href="http://electron.atom.io" target="_blank">"link"</a>.</h4> -->
 
 <!-- <p align="center">
   <a href="https://badge.fury.io/js/electron-markdownify">
@@ -32,16 +32,7 @@
 
 ## Description
 
-- line 1
-- line 2
-- line 3
-- line 4
-- line 5
-- line 6
-- line 7
-- line 8
-- line 9
-- line 10
+Pagine web che mostrano tutti i lavori svolti durante il corso Boolean, questa repository si occupa della parte front-end
 
 ## How To Use
 

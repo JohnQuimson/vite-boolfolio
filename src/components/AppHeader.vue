@@ -13,9 +13,15 @@ export default {
       <div>Logo</div>
       <nav>
         <ul class="list-unstyled m-0 p-0 gap-4 d-flex">
-          <li>home</li>
-          <li>accedi</li>
-          <li>registrati</li>
+          <li>
+            <router-link :to="{ name: 'home' }">Home</router-link>
+          </li>
+          <li>
+            <router-link :to="{ name: 'projects' }">Projects</router-link>
+          </li>
+          <li>
+            <router-link :to="{ name: 'details' }">Details</router-link>
+          </li>
         </ul>
       </nav>
     </div>
