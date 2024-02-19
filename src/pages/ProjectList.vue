@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       currentPage: 1,
+      lastPage: null,
       projects: [],
       baseUrl: 'http://127.0.0.1:8000',
       apiUrls: {
@@ -30,6 +31,8 @@ export default {
         })
         .then((response) => {
           this.projects = response.data.results.data;
+          this.lastPage = response.data.results.last_page;
+          this.currentPage = response.data.results.current_page;
           console.log(response);
         })
         .catch((error) => {
@@ -38,7 +41,7 @@ export default {
     },
 
     nextPage() {
-      if (this.response.data.results.next_page_url !== null) {
+      if (this.currentPage < this.lastPage) {
         this.currentPage++;
         this.getProjects();
       }
@@ -46,7 +49,7 @@ export default {
 
     prevPage() {
       // if (this.currentPage > 1)
-      if (this.response.data.results.prev_page_url !== null) {
+      if (this.currentPage > 1) {
         this.currentPage--;
         this.getProjects();
       }
@@ -66,11 +69,23 @@ export default {
     </div>
     <ul class="container d-flex justify-content-around list-unstyled">
       <li>
-        <button class="btn btn-primary" @click="prevPage">&lt</button>
+        <button
+          class="btn btn-primary"
+          :class="{ disabled: currentPage === 1 }"
+          @click="prevPage"
+        >
+          &lt
+        </button>
       </li>
       <li>{{ this.currentPage }}</li>
       <li>
-        <button class="btn btn-primary" @click="nextPage">></button>
+        <button
+          class="btn btn-primary"
+          :class="{ disabled: currentPage === lastPage }"
+          @click="nextPage"
+        >
+          >
+        </button>
       </li>
     </ul>
   </main>
