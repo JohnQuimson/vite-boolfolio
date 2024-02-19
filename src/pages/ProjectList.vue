@@ -38,12 +38,15 @@ export default {
     },
 
     nextPage() {
-      this.currentPage++;
-      this.getProjects();
+      if (this.response.data.results.next_page_url !== null) {
+        this.currentPage++;
+        this.getProjects();
+      }
     },
 
     prevPage() {
-      if (this.currentPage > 1) {
+      // if (this.currentPage > 1)
+      if (this.response.data.results.prev_page_url !== null) {
         this.currentPage--;
         this.getProjects();
       }
