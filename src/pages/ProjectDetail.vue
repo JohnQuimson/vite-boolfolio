@@ -1,16 +1,14 @@
 <script>
 import axios from 'axios';
+import store from '../store';
 
 export default {
   name: 'ProjectDetail',
 
   data() {
     return {
+      store,
       project: {},
-      baseUrl: 'http://127.0.0.1:8000',
-      apiUrls: {
-        projects: '/api/projects',
-      },
     };
   },
 
@@ -18,7 +16,10 @@ export default {
     getProject() {
       axios
         .get(
-          this.baseUrl + this.apiUrls.projects + '/' + this.$route.params.slug
+          this.store.api.baseUrl +
+            this.store.api.apiUrls.projects +
+            '/' +
+            this.$route.params.slug
         )
         .then((response) => {
           this.project = response.data.result;
@@ -32,12 +33,19 @@ export default {
 
   created() {
     this.getProject();
+
+    this.$watch(
+      () => this.$route.params,
+      (toParams, previousParams) => {
+        this.getProject();
+      }
+    );
   },
 };
 </script>
 
 <template>
-  <div class="container border d-flex align-items-center flex-column py-3">
+  <div class="container d-flex align-items-center flex-column py-3">
     <h1 class="mb-5">Project Details</h1>
     <div v-if="project">
       <div class="card" style="width: 18rem">

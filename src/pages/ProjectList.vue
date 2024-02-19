@@ -1,20 +1,18 @@
 <script>
 import axios from 'axios';
 import ProjectCard from '../components/ProjectCard.vue';
+import store from '../store';
 
 export default {
-  name: 'AppList',
+  name: 'ProjectList',
 
   data() {
     return {
+      store,
       currentPage: 1,
       lastPage: null,
       projects: [],
       props: ['projects'],
-      baseUrl: 'http://127.0.0.1:8000',
-      apiUrls: {
-        projects: '/api/projects',
-      },
     };
   },
 
@@ -25,7 +23,7 @@ export default {
   methods: {
     getProjects() {
       axios
-        .get(this.baseUrl + this.apiUrls.projects, {
+        .get(this.store.api.baseUrl + this.store.api.apiUrls.projects, {
           params: {
             page: this.currentPage,
           },
