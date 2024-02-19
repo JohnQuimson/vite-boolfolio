@@ -10,6 +10,7 @@ export default {
       currentPage: 1,
       lastPage: null,
       projects: [],
+      props: ['projects'],
       baseUrl: 'http://127.0.0.1:8000',
       apiUrls: {
         projects: '/api/projects',
@@ -65,7 +66,13 @@ export default {
   <main>
     <h1 class="text-center mt-5">Projects</h1>
     <div class="container py-5 d-flex flex-wrap justify-content-center gap-5">
-      <ProjectCard :projects="projects" />
+      <div
+        class="col-sm-6 col-md-4 col-lg-3 g-4"
+        v-for="project in projects"
+        :key="project.id"
+      >
+        <ProjectCard :project="project" />
+      </div>
     </div>
     <ul class="container d-flex justify-content-around list-unstyled">
       <li>

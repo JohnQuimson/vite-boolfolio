@@ -5,5 +5,5 @@ export default {
 </script>
 
 <template>
-  <div>Details</div>
+  <div>AppDetails</div>
 </template>
