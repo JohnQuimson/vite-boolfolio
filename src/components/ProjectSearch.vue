@@ -14,6 +14,12 @@ export default {
 
   methods: {
     search() {
+      this.store.projects.currentPage = 1;
+      // Per mettere l`uri in alto ?page=n&key=*prova*
+      this.$router.push({
+        name: 'projects',
+        query: { page: 1, key: this.store.projects.searchKey },
+      });
       this.$emit('searchProject');
     },
   },

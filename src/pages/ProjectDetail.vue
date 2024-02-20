@@ -60,6 +60,18 @@ export default {
             </li>
           </ul>
         </div>
+        <p>
+          <router-link
+            :to="{
+              name: 'projects',
+              query: {
+                page: store.projects.currentPage,
+                key: store.projects.searchKey,
+              },
+            }"
+            >Torna alla lista</router-link
+          >
+        </p>
       </div>
     </div>
     <div v-else>

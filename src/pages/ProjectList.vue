@@ -10,7 +10,6 @@ export default {
   data() {
     return {
       store,
-      currentPage: 1,
       lastPage: null,
       projects: [],
       props: ['projects'],
@@ -27,14 +26,14 @@ export default {
       axios
         .get(this.store.api.baseUrl + this.store.api.apiUrls.projects, {
           params: {
-            page: this.currentPage,
+            page: this.store.projects.currentPage,
             key: this.store.projects.searchKey,
           },
         })
         .then((response) => {
           this.projects = response.data.results.data;
           this.lastPage = response.data.results.last_page;
-          this.currentPage = response.data.results.current_page;
+          this.store.projects.currentPage = response.data.results.current_page;
           console.log('risposta server');
           console.log(response);
           console.log('risposta server');
@@ -45,21 +44,41 @@ export default {
     },
 
     nextPage() {
-      if (this.currentPage < this.lastPage) {
-        this.currentPage++;
+      if (this.store.projects.currentPage < this.lastPage) {
+        this.store.projects.currentPage++;
+        // Per mettere l`uri in alto ?page=n
+        this.$router.push({
+          name: 'projects',
+          query: {
+            page: this.store.projects.currentPage,
+            key: this.store.projects.searchKey,
+          },
+        });
         this.getProjects();
       }
     },
 
     prevPage() {
-      // if (this.currentPage > 1)
-      if (this.currentPage > 1) {
-        this.currentPage--;
+      // if (this.projects.currentPage > 1)
+      if (this.store.projects.currentPage > 1) {
+        this.store.projects.currentPage--;
+        // Per mettere l`uri in alto ?page=n
+        this.$router.push({
+          name: 'projects',
+          query: {
+            page: this.store.projects.currentPage,
+            key: this.store.projects.searchKey,
+          },
+        });
         this.getProjects();
       }
     },
   },
   created() {
+    // ricerca in base all'url
+    this.store.projects.currentPage = this.$route.query.page ?? 1;
+    this.store.projects.searchKey = this.$route.query.key ?? null;
+
     this.getProjects();
   },
 };
@@ -84,17 +103,17 @@ export default {
       <li>
         <button
           class="btn btn-primary"
-          :class="{ disabled: currentPage === 1 }"
+          :class="{ disabled: store.projects.currentPage === 1 }"
           @click="prevPage"
         >
           &lt
         </button>
       </li>
-      <li>{{ this.currentPage }}</li>
+      <li>{{ this.store.projects.currentPage }}</li>
       <li>
         <button
           class="btn btn-primary"
-          :class="{ disabled: currentPage === lastPage }"
+          :class="{ disabled: store.projects.currentPage === lastPage }"
           @click="nextPage"
         >
           >
