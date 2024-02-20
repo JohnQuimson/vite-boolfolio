@@ -1,6 +1,7 @@
 <script>
 import axios from 'axios';
 import ProjectCard from '../components/ProjectCard.vue';
+import ProjectSearch from '../components/ProjectSearch.vue';
 import store from '../store';
 
 export default {
@@ -18,6 +19,7 @@ export default {
 
   components: {
     ProjectCard,
+    ProjectSearch,
   },
 
   methods: {
@@ -26,13 +28,16 @@ export default {
         .get(this.store.api.baseUrl + this.store.api.apiUrls.projects, {
           params: {
             page: this.currentPage,
+            key: this.store.projects.searchKey,
           },
         })
         .then((response) => {
           this.projects = response.data.results.data;
           this.lastPage = response.data.results.last_page;
           this.currentPage = response.data.results.current_page;
+          console.log('risposta server');
           console.log(response);
+          console.log('risposta server');
         })
         .catch((error) => {
           console.log(error);
@@ -63,9 +68,12 @@ export default {
 <template>
   <main>
     <h1 class="text-center mt-5">Projects</h1>
-    <div class="container py-5 d-flex flex-wrap justify-content-center gap-5">
+    <div class="container">
+      <ProjectSearch @search-project="getProjects" />
+    </div>
+    <div class="container py-5 d-flex flex-wrap justify-content-between gap-5">
       <div
-        class="col-sm-6 col-md-4 col-lg-3 g-4"
+        class="col-sm-12 col-md-4 col-lg-3 g-4"
         v-for="project in projects"
         :key="project.id"
       >
