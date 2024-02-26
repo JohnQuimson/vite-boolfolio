@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-    <img src="./public/img/my-logo.png" alt="my-logo" width="200">
+    <img src="./public/img/logo-gif.gif" alt="logo" width="200">
   <br>
  Boolfolio Front-end
   <br>
@@ -32,7 +32,8 @@
 
 ## Description
 
-Pagine web che mostrano tutti i lavori svolti durante il corso Boolean, questa repository si occupa della parte front-end
+FRONT END <br />
+My portfolio
 
 ## How To Use
 
