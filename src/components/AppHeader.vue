@@ -9,28 +9,26 @@ export default {
 
 <template>
   <header>
-    <div class="container d-flex justify-content-between py-2">
-      <div class="cont-logo">
-        <router-link :to="{ name: 'home' }">
-          <img
-            src="../../public/img/John_Quimson-removebg-preview.png"
-            alt="logo"
-        /></router-link>
-      </div>
-      <nav>
-        <ul class="list-unstyled m-0 p-0 gap-4 d-flex">
-          <li>
-            <router-link :to="{ name: 'projects' }">Projects</router-link>
-          </li>
-          <li>
-            <router-link :to="{ name: 'about' }">About Me</router-link>
-          </li>
-          <li>
-            <router-link :to="{ name: 'contacts' }">Contacts</router-link>
-          </li>
-        </ul>
-      </nav>
+    <div class="cont-logo">
+      <router-link :to="{ name: 'home' }">
+        <img
+          src="../../public/img/John_Quimson-removebg-preview.png"
+          alt="logo"
+      /></router-link>
     </div>
+    <nav>
+      <ul class="list-unstyled m-0 p-0 gap-4 d-flex">
+        <li>
+          <router-link :to="{ name: 'projects' }">Projects</router-link>
+        </li>
+        <li>
+          <router-link :to="{ name: 'about' }">About Me</router-link>
+        </li>
+        <li>
+          <router-link :to="{ name: 'contacts' }">Contacts</router-link>
+        </li>
+      </ul>
+    </nav>
   </header>
 </template>
 
@@ -40,6 +38,10 @@ export default {
 header {
   background-color: #0a1930;
   height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
 
   .router-link-active,
   .router-link-exact-active,
