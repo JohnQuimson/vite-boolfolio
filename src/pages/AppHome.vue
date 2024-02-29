@@ -5,40 +5,33 @@ export default {
 </script>
 
 <template>
-  <main class="main-welcome">
-    <div class="jumbotron p-5 mb-4 rounded-3">
-      <div class="container py-5">
-        <span class="salute">Hi, my name is</span>
+  <main>
+    <div class="container py-5">
+      <span class="salute">Hi, my name is</span>
 
-        <h1 class="display-5 fw-bold">John Henric Quimson</h1>
+      <h1 class="display-5 fw-bold">John Henric Quimson</h1>
 
-        <p class="col-md-8 my-job">Jr. Full-Stack Web Developer</p>
+      <p class="col-md-8 my-job">Jr. Full-Stack Web Developer</p>
 
-        <p class="short-description">
-          I'm a student of Boolean, studying to become a full-stack web
-          developer. Big fan of technology and outdoor activities.
-        </p>
+      <div class="cont-btn d-flex gap-5">
+        <router-link :to="{ name: 'projects' }" class="work-btn"
+          >Take a look to my work list</router-link
+        >
 
-        <div class="cont-btn d-flex gap-5">
-          <router-link :to="{ name: 'projects' }" class="work-btn"
-            >Take a look to my work list</router-link
-          >
-
-          <a
-            href="https://github.com/JohnQuimson"
-            class="github-btn"
-            target="_blank"
-          >
-            my github
-          </a>
-        </div>
+        <a
+          href="https://github.com/JohnQuimson"
+          class="github-btn"
+          target="_blank"
+        >
+          my github
+        </a>
       </div>
     </div>
   </main>
 </template>
 
 <style lang="scss" scoped>
-.main-welcome {
+main {
   background-color: #0a1930;
   height: 100vh;
   padding-top: 100px;
@@ -58,12 +51,6 @@ export default {
     color: #8995b5;
     font-size: 50px;
     font-weight: 600;
-  }
-
-  .short-description {
-    width: 40%;
-    color: #8995b5;
-    margin-bottom: 50px;
   }
 
   .github-btn {
@@ -92,5 +79,9 @@ export default {
       border: 1px solid white;
     }
   }
+}
+
+a {
+  text-decoration: none;
 }
 </style>

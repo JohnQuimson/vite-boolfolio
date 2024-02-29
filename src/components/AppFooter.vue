@@ -17,4 +17,8 @@ export default {
   </footer>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+footer {
+  height: 80px;
+}
+</style>

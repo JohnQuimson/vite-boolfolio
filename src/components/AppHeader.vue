@@ -22,12 +22,12 @@ export default {
           <li>
             <router-link :to="{ name: 'projects' }">Projects</router-link>
           </li>
-          <!-- <li>
+          <li>
             <router-link :to="{ name: 'about' }">About Me</router-link>
           </li>
           <li>
             <router-link :to="{ name: 'contacts' }">Contacts</router-link>
-          </li> -->
+          </li>
         </ul>
       </nav>
     </div>
@@ -39,5 +39,6 @@ export default {
 
 header {
   background-color: #0a1930;
+  height: 80px;
 }
 </style>
