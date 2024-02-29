@@ -40,5 +40,16 @@ export default {
 header {
   background-color: #0a1930;
   height: 80px;
+
+  .router-link-active,
+  .router-link-exact-active,
+  a {
+    color: #74c6cc;
+    text-decoration: none;
+  }
+
+  .router-link-exact-active {
+    color: #ffc107;
+  }
 }
 </style>

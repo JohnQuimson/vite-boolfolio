@@ -33,7 +33,7 @@ export default {
 <style lang="scss" scoped>
 main {
   background-color: #0a1930;
-  height: 100vh;
+  height: calc(100vh - 80px);
   padding-top: 100px;
 
   .salute {

@@ -16,17 +16,22 @@ export default {
 <style scoped lang="scss">
 @use '../assets/scss/style.scss' as *;
 
-.container {
-  display: flex;
+main {
+  background-color: #0a1930;
+  height: calc(100vh - 80px);
+  color: white;
+  .container {
+    display: flex;
 
-  .cont-img {
-    width: 40%;
-    border: 1px solid red;
-  }
+    .cont-img {
+      width: 40%;
+      border: 1px solid red;
+    }
 
-  .info {
-    width: 60%;
-    border: 1px solid yellow;
+    .info {
+      width: 60%;
+      border: 1px solid yellow;
+    }
   }
 }
 </style>
